@@ -1,0 +1,22 @@
+<app-navbar />
+
+<div class="container my-5">
+  <div class="row g-3">
+    @for (pokemon of pokemons(); track $index) {
+      <div class="col-6 col-sm-4 col-lg-3">
+        <div class="pokemon-card">
+          <img [src]="pokemon.image" [alt]="pokemon.name">
+          <h5>{{pokemon.name | titlecase}}</h5>
+          <p>#{{$index + 1}}</p>
+          <button type="button" class="btn btn-danger" (click)="showDetails(pokemon.id)">Ver detalles</button>
+        </div>
+      </div>
+    }
+
+  </div>
+</div>
+
+<router-outlet></router-outlet>
+<router-outlet name="details"></router-outlet>
+
+
